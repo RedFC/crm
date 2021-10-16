@@ -1,0 +1,108 @@
+
+
+<!doctype html>
+<html lang="en">
+  
+<!-- Mirrored from templates.iqonic.design/datum/html/backend/auth-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 13 Oct 2021 00:16:45 GMT -->
+<head>
+    <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <title>Datum | CRM Admin Dashboard Template</title>
+      
+      <!-- Favicon -->
+      <link rel="shortcut icon" href="https://templates.iqonic.design/datum/html/assets/images/favicon.ico" />
+      
+      <link rel="stylesheet" href="https://templates.iqonic.design/datum/html/assets/css/backend-plugin.min.css">
+      <link rel="stylesheet" href="https://templates.iqonic.design/datum/html/assets/css/backend.css?v=1.0.0">  </head>
+  <body class=" ">
+    <!-- loader Start -->
+    <div id="loading">
+          <div id="loading-center">
+          </div>
+    </div>
+    <!-- loader END -->
+    
+      <div class="wrapper">
+    <section class="login-content">
+         <div class="container h-100">
+            <div class="row align-items-center justify-content-center h-100">
+               <div class="col-md-5">
+                  <div class="card p-3">
+                     <div class="card-body">
+                        <% if(typeof error != 'undefined' && error) { %>
+                           <p class="text-center text-warning"><%= error %></p>
+                        <% } %>
+                        <div class="auth-logo">
+                           <img src="https://templates.iqonic.design/datum/html/assets/images/logo.png" class="img-fluid  rounded-normal  darkmode-logo" alt="logo">
+                           <img src="https://templates.iqonic.design/datum/html/assets/images/logo-dark.png" class="img-fluid rounded-normal light-logo" alt="logo">
+                        </div>
+                        <h3 class="mb-3 font-weight-bold text-center">Sign In</h3>
+                        <p class="text-center text-secondary mb-4">Log in to your account to continue</p>
+                        <div class="mb-5">
+                            <p class="line-around text-secondary mb-0"><span class="line-around-1">or login with email</span></p>
+                        </div>
+                        <form method="POST" action="/">
+                           <div class="row">
+                              <div class="col-lg-12">
+                                 <div class="form-group">
+                                    <label class="text-secondary">Email</label>
+                                    <input class="form-control" type="email" id="email" name="email" placeholder="Enter Email">
+                                 </div>
+                              </div>
+                              <div class="col-lg-12 mt-2">
+                                 <div class="form-group">
+                                     <div class="d-flex justify-content-between align-items-center">
+                                         <label class="text-secondary">Password</label>
+                                         <label><a href="auth-recover-pwd.html">Forgot Password?</a></label>
+                                     </div>
+                                    <input class="form-control" type="password" id="password" name="password" placeholder="Enter Password">
+                                 </div>
+                              </div>
+                           </div>
+                           <button type="submit" class="btn btn-primary btn-block mt-2">Log In</button>
+                        </form>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      </div>
+    
+    <!-- Backend Bundle JavaScript -->
+    <script src="https://templates.iqonic.design/datum/html/assets/js/backend-bundle.min.js"></script>
+    <!-- Chart Custom JavaScript -->
+    <script src="https://templates.iqonic.design/datum/html/assets/js/customizer.js"></script>
+    
+    <script src="https://templates.iqonic.design/datum/html/assets/js/sidebar.js"></script>
+    
+    <!-- Flextree Javascript-->
+    <script src="https://templates.iqonic.design/datum/html/assets/js/flex-tree.min.js"></script>
+    <script src="https://templates.iqonic.design/datum/html/assets/js/tree.js"></script>
+    
+    <!-- Table Treeview JavaScript -->
+    <script src="https://templates.iqonic.design/datum/html/assets/js/table-treeview.js"></script>
+    
+    <!-- SweetAlert JavaScript -->
+    <script src="https://templates.iqonic.design/datum/html/assets/js/sweetalert.js"></script>
+    
+    <!-- Vectoe Map JavaScript -->
+    <script src="https://templates.iqonic.design/datum/html/assets/js/vector-map-custom.js"></script>
+    
+    <!-- Chart Custom JavaScript -->
+    <script src="https://templates.iqonic.design/datum/html/assets/js/chart-custom.js"></script>
+    <script src="https://templates.iqonic.design/datum/html/assets/js/charts/01.js"></script>
+    <script src="https://templates.iqonic.design/datum/html/assets/js/charts/02.js"></script>
+    
+    <!-- slider JavaScript -->
+    <script src="https://templates.iqonic.design/datum/html/assets/js/slider.js"></script>
+    
+    <!-- Emoji picker -->
+    <script src="https://templates.iqonic.design/datum/html/assets/vendor/emoji-picker-element/index.js" type="module"></script>
+    
+    
+    <!-- app JavaScript -->
+    <script src="https://templates.iqonic.design/datum/html/assets/js/app.js"></script>  </body>
+
+<!-- Mirrored from templates.iqonic.design/datum/html/backend/auth-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 13 Oct 2021 00:16:45 GMT -->
+</html>

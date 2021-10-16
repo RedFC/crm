@@ -1,0 +1,106 @@
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["selectRelationCount"]
+}
+
+model Role {
+  id        String   @id @default(uuid())
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  User      User[]
+}
+
+//*************** USER LEVEL ***************//
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  blocked   Boolean  @default(false)
+  gcm       GCM[]
+  role      Role     @relation(fields: [roleId], references: [id])
+  roleId    String
+  profile   Profile? // One profile (optional)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model GCM {
+  id       String  @unique
+  platform String
+  user     User?   @relation(fields: [userId], references: [id]) // One user (optional)
+  userId   String?
+}
+
+model Profile {
+  name         String
+  about        String?
+  phoneNo      String?  @unique
+  profileImage String?  @default("https://easy-1-jq7udywfca-uc.a.run.app/public/images/user.png")
+  user         User     @relation(fields: [userId], references: [id]) // Belongs to user
+  userId       String
+  gender       String   @default("MALE")
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@id([userId])
+}
+
+model Customer {
+  id          String        @id @default(uuid())
+  name        String
+  email       String        @unique
+  type        CustomerTypes @default(WALKIN)
+  address     String
+  phonenumber String        @unique
+  blocked     Boolean       @default(false)
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  Sale        Sale[]
+}
+
+model Items {
+  id        String   @id @default(uuid())
+  name      String
+  code      String   @unique
+  qty       String
+  price     String
+  blocked   Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  Sale      Sale[]
+}
+
+model Sale {
+  id         String   @id @default(uuid())
+  item       Items    @relation(references: [id], fields: [itemId])
+  itemId     String
+  customer   Customer @relation(references: [id], fields: [customerId])
+  customerId String
+  quantity   String
+  itemprice  String
+  netprice   String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  ledger     ledger[]
+}
+
+model ledger {
+  id     String @id @default(uuid())
+  sale   Sale   @relation(references: [id], fields: [saleId])
+  saleId String
+  debit   String
+  credit  String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+enum CustomerTypes {
+  CREDIT
+  WALKIN
+}

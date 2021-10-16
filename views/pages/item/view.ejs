@@ -1,0 +1,54 @@
+<%- include('../../layouts/head'); %>
+
+    <%- include('../../layouts/startpagecontent'); %>
+
+    <div class="card">
+        <div class="card-header d-flex justify-content-between">
+           <div class="header-title">
+              <h4 class="card-title">View Items</h4>
+           </div>
+           <div class="header-title">
+            <a href="/admin/item/create"><button type="submit" class="btn bg-primary">Add Item</button></a>
+           </div>
+        </div>
+        <div class="card-body">
+           <div class="collapse" id="form-element-1">
+                 <div class="card"><kbd class="bg-dark"><pre id="basic-form" class="text-white"></div>
+           </div>
+                      <!-- Entry Points -->
+                      <table class="table">
+                        <thead>
+                           <tr>
+                              <th scope="col">#</th>
+                              <th scope="col">ID</th>
+                              <th scope="col">ITEM NAME</th>
+                              <th scope="col">CODE</th>
+                              <th scope="col">QUANTITY</th>
+                              <th scope="col">PRICE</th>
+                              <th scope="col">EDIT</th>
+                              <th scope="col">DELETE</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <% for(var i=0; i < data.length; i++) { %>
+                              <tr>
+                                 <th scope="row"><%= i+1 %></th>
+                                 <td><%= data[i].id %></td>
+                                 <td><%= data[i].name %></td>
+                                 <td><%= data[i].code %></td>
+                                 <td><%= data[i].qty %></td>
+                                 <td><%= data[i].price %></td>
+                                 <td><a href="/admin/item/update/<%= data[i].id %>"><button type="submit" class="btn bg-warning">EDIT</button></a></td>
+                                 <td><a href="#"><button type="submit" class="btn bg-danger">DELETE</button></a></td>
+                              </tr>
+                           <% } %>
+                        </tbody>
+                        </table>
+                <!-- End points -->
+            </div>
+    </div>
+
+            <%- include('../../layouts/endpagecontent'); %>
+
+
+<%- include('../../layouts/footer'); %>

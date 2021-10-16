@@ -1,0 +1,58 @@
+<%- include('../../layouts/head'); %>
+
+    <%- include('../../layouts/startpagecontent'); %>
+
+    <div class="card">
+        <div class="card-header d-flex justify-content-between">
+           <div class="header-title">
+              <h4 class="card-title">View Customer</h4>
+           </div>
+           <div class="header-title">
+            <a href="/admin/customer/create"><button type="submit" class="btn bg-primary">Add Customer</button></a>
+           </div>
+        </div>
+        <div class="card-body">
+           <div class="collapse" id="form-element-1">
+                 <div class="card"><kbd class="bg-dark"><pre id="basic-form" class="text-white"></div>
+           </div>
+                      <!-- Entry Points -->
+                      <table class="table">
+                        <thead>
+                           <tr>
+                              <th scope="col">#</th>
+                              <th scope="col">ID</th>
+                              <th scope="col">NAME</th>
+                              <th scope="col">EMAIL</th>
+                              <th scope="col">ADDRESS</th>
+                              <th scope="col">TYPE</th>
+                              <th scope="col">PHONE</th>
+                              <th scope="col">RECORD</th>
+                              <th scope="col">EDIT</th>
+                              <th scope="col">DELETE</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <% for(var i=0; i < data.length; i++) { %>
+                              <tr>
+                                 <th scope="row"><%= i+1 %></th>
+                                 <td><%= data[i].id %></td>
+                                 <td><%= data[i].name %></td>
+                                 <td><%= data[i].email %></td>
+                                 <td><%= data[i].address %></td>
+                                 <td><%= data[i].type %></td>
+                                 <td><%= data[i].phonenumber %></td>
+                                 <td><a href="#"><button type="submit" class="btn bg-primary">RECORD</button></a></td>
+                                 <td><a href="/admin/customer/update/<%= data[i].id %>"><button type="submit" class="btn bg-warning">EDIT</button></a></td>
+                                 <td><a href="#"><button type="submit" class="btn bg-danger">DELETE</button></a></td>
+                              </tr>
+                           <% } %>
+                        </tbody>
+                        </table>
+                <!-- End points -->
+            </div>
+    </div>
+
+            <%- include('../../layouts/endpagecontent'); %>
+
+
+<%- include('../../layouts/footer'); %>

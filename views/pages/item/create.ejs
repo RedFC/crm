@@ -1,0 +1,41 @@
+<%- include('../../layouts/head'); %>
+   <%- include('../../layouts/startpagecontent'); %>
+<div class="card">
+    <div class="card-header d-flex justify-content-between">
+       <div class="header-title">
+          <h4 class="card-title">Create Item</h4>
+       </div>
+    </div>
+    <div class="card-body">
+       <div class="collapse" id="form-element-1">
+            <div class="card">
+               <kbd class="bg-dark"><pre id="basic-form" class="text-white">
+            </div>
+       </div>
+                      <!-- Entry Points -->
+                      <form method="post" action="/admin/item/create">
+                         <div class="form-group">
+                            <label for="name">Item Name:</label>
+                            <input type="text" class="form-control" name="name" id="name">
+                         </div>
+                         <div class="form-group">
+                           <label for="Email">Item Code:</label>
+                           <input type="text" class="form-control" name="code" id="Email">
+                         </div>
+                         <div class="form-group">
+                           <label for="PhoneNumber">Item qty:</label>
+                           <input type="text" class="form-control" name="qty" id="PhoneNumber">
+                         </div>
+                         <div class="form-group">
+                           <label for="Type">Item price:</label>
+                           <input type="text" class="form-control" name="price" id="Type">
+                         </div>
+                         <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                      </form>
+                      <br>
+                      <a href="/admin/dashboard"><button type="submit" class="btn bg-warning">Go To Home</button></a>
+                   <!-- End points -->
+            </div>
+    </div>
+         <%- include('../../layouts/endpagecontent'); %>
+<%- include('../../layouts/footer'); %>
