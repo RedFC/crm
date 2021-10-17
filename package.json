@@ -1,10 +1,10 @@
 {
-  "name": "Fluent",
+  "name": "CRM",
   "version": "1.0.0",
   "description": "",
   "main": "./lib/bin/www",
   "scripts": {
-    "start": "set NODE_ENV=production&&tsc&&node lib/bin/www",
+    "start": "set NODE_ENV=production&&node lib/bin/www",
     "dev": "set NODE_ENV=development&&tsc&& concurrently --kill-others \"tsc -w\" \"nodemon ./lib/bin/www\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:dev": "set NODE_ENV=development&&tsc&& concurrently --kill-others \"tsc -w\" \"nodemon --inspect ./lib/bin/www\""
