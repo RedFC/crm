@@ -13,13 +13,13 @@
             </div>
        </div>
                       <!-- Entry Points -->
-                      <form method="post" action="/admin/customer/create">
+                      <form method="post" action="/admin/sale/credit/create">
                          <div class="form-group">
                            <div class="input-group mb-4">
                               <div class="input-group-prepend">
                                  <label class="input-group-text" for="inputGroupSelect01">Customer:</label>
                               </div>
-                              <select name="itemid" id="" class="custom-select">
+                              <select name="customer" id="" class="custom-select">
                                  <% for(var i=0; i < datacustomer.length; i++) { %>
                                     <option value="<%= datacustomer[i].id %>"><%= datacustomer[i].name %></option>
                                  <% } %>
@@ -31,7 +31,7 @@
                            <div class="input-group-prepend">
                               <label class="input-group-text" for="inputGroupSelect01">Item:</label>
                            </div>
-                           <select name="itemid" id="" class="custom-select">
+                           <select name="item" id="" class="custom-select">
                               <% for(var i=0; i < dataItems.length; i++) { %>
                                  <option value="<%= dataItems[i].id %>"><%= dataItems[i].code %></option>
                               <% } %>
@@ -40,16 +40,23 @@
                          </div>
                          <div class="form-group">
                            <label for="PhoneNumber">Item Quantity:</label>
-                           <input type="text" class="form-control" name="phone" id="PhoneNumber">
+                           <input type="text" class="form-control" name="qty" id="PhoneNumber">
                          </div>
                          <div class="form-group">
                            <label for="Type">Customer ItemPrice:</label>
-                           <input type="text" class="form-control" name="type" id="Type">
+                           <input type="text" class="form-control" name="price" id="Type">
                          </div>
                          <div class="form-group">
                             <label for="address">Customer Subtotal:</label>
-                            <input type="text" class="form-control" name="address" id="address">
+                            <input type="text" class="form-control" name="netprice" id="address">
                          </div>
+                         <div class="form-group">
+                           <label for="address">Payment Type:</label>
+                           <select name="type" id="" class="custom-select">
+                                 <option value="CREDIT">CREDIT</option>
+                                 <option value="DEBIT">DEBIT</option>
+                           </select>
+                        </div>
                          <button type="submit" class="btn btn-primary mr-2">Submit</button>
                       </form>
                       <br>

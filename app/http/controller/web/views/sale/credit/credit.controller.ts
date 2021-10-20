@@ -2,6 +2,7 @@ import path from "path";
 import * as appRoot from 'app-root-path'
 import { UserService } from "../../../../../services/user.service";
 import { ItemService } from "../../../../../services/Items.service";
+import { LedgerService } from "../../../../../services/ledger.service";
 export class Views {
 
     async create(req, res)
@@ -15,16 +16,21 @@ export class Views {
 
     async set(req, res){
         try {
-            let myUserservice = new ItemService();
-            let schema = {
-                name:req.body.name,
-                code:req.body.code,
-                qty:req.body.qty,
-                price:req.body.price,
+            let myLeadgerService = new LedgerService();
+            let saleschema = {
+                customer:{connect:{id:req.body.customer}},
+                item:{connect:{id:req.body.item}},
+                itemprice:req.body.price,
+                netprice:req.body.netprice,
+                quantity:req.body.qty
             }
-            let create = await myUserservice.create(schema)
+            let ledgerschema = {
+                customer:{connect:{id:req.body.customer}},
+                type:req.body.type
+            }
+            let create = await myLeadgerService.create(saleschema,ledgerschema)
             if(create){
-                res.redirect('/admin/item/view')
+                res.redirect('/admin/sale/credit/view')
             }
         } catch (error) {
             console.log(error);
@@ -33,11 +39,19 @@ export class Views {
 
     async view(req, res) {
         try {
-            let myUserservice = new ItemService();
-            let get = await myUserservice.findAll();
+            let myLeadgerService = new LedgerService();
+            let get = await myLeadgerService.findAll();
             if(get){
-                res.render(path.join(appRoot.path, "views/sale/credit/view.ejs"),{data : get});
+                res.render(path.join(appRoot.path, "views/pages/sale/credit/view.ejs"),{data : get});
             }
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    async invoice(req, res) {
+        try {
+                res.render(path.join(appRoot.path, "views/pages/sale/credit/invoice.ejs"));
         } catch (error) {
             console.log(error);
         }

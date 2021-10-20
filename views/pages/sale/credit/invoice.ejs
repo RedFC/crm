@@ -1,0 +1,172 @@
+<%- include('../../../layouts/head'); %>
+
+    <%- include('../../../layouts/startpagecontent'); %>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container" >
+    
+    <h3 class="text-right"><button class="btn btn-primary" onclick="printDiv('printarea')">print</button></h3>
+
+    <div class="row" id="printarea">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body p-0">
+                    <br>
+                    <h4 class="text-center">SHOP COPY</h4>
+                    <div class="row pb-5 p-5">
+                        <div class="col-md-12">
+                            <p class="font-weight-bold mb-4">Client Information</p>
+                            <p class="">Customer Name : John Doe, Mrs Emma Downson</p>
+                            <p class="">Remaining Balance: 50000</p>
+                        </div>
+                    </div>
+                    <div class="row p-5 text-center">
+                        <div class="col-md-12">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th class="border-0 text-uppercase small font-weight-bold">ID</th>
+                                        <th class="border-0 text-uppercase small font-weight-bold">Item</th>
+                                        <th class="border-0 text-uppercase small font-weight-bold">Description</th>
+                                        <th class="border-0 text-uppercase small font-weight-bold">Quantity</th>
+                                        <th class="border-0 text-uppercase small font-weight-bold">Unit Cost</th>
+                                        <th class="border-0 text-uppercase small font-weight-bold">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Software</td>
+                                        <td>LTS Versions</td>
+                                        <td>21</td>
+                                        <td>$321</td>
+                                        <td>$3452</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body p-0">
+                    <br>
+                    <h4 class="text-center">CUSTOMER COPY</h4>
+                    <div class="row pb-5 p-5">
+                        <div class="col-md-12">
+                            <p class="font-weight-bold mb-4">Client Information</p>
+                            <p class="">Customer Name : John Doe, Mrs Emma Downson</p>
+                            <p class="">Remaining Balance: 50000</p>
+                        </div>
+                    </div>
+                    <div class="row p-5 text-center">
+                        <div class="col-md-12">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th class="border-0 text-uppercase small font-weight-bold">ID</th>
+                                        <th class="border-0 text-uppercase small font-weight-bold">Item</th>
+                                        <th class="border-0 text-uppercase small font-weight-bold">Description</th>
+                                        <th class="border-0 text-uppercase small font-weight-bold">Quantity</th>
+                                        <th class="border-0 text-uppercase small font-weight-bold">Unit Cost</th>
+                                        <th class="border-0 text-uppercase small font-weight-bold">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Software</td>
+                                        <td>LTS Versions</td>
+                                        <td>21</td>
+                                        <td>$321</td>
+                                        <td>$3452</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body p-0">
+                    <br>
+                    <h4 class="text-center">OWNERS COPY</h4>
+                    <div class="row pb-5 p-5">
+                        <div class="col-md-12">
+                            <p class="font-weight-bold mb-4">Client Information</p>
+                            <p class="">Customer Name : John Doe, Mrs Emma Downson</p>
+                            <p class="">Remaining Balance: 50000</p>
+                        </div>
+                    </div>
+                    <div class="row p-5 text-center">
+                        <div class="col-md-12">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th class="border-0 text-uppercase small font-weight-bold">ID</th>
+                                        <th class="border-0 text-uppercase small font-weight-bold">Item</th>
+                                        <th class="border-0 text-uppercase small font-weight-bold">Description</th>
+                                        <th class="border-0 text-uppercase small font-weight-bold">Quantity</th>
+                                        <th class="border-0 text-uppercase small font-weight-bold">Unit Cost</th>
+                                        <th class="border-0 text-uppercase small font-weight-bold">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Software</td>
+                                        <td>LTS Versions</td>
+                                        <td>21</td>
+                                        <td>$321</td>
+                                        <td>$3452</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+
+</div>
+
+<script>
+    function printDiv(area) {
+        var mywindow = window.open('PRINT');
+
+        mywindow.document.write('<html><head>');
+        mywindow.document.write("<link href='//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css' rel='stylesheet' id='bootstrap-css'>")
+        mywindow.document.write("<link rel='shortcut icon' href='https://templates.iqonic.design/datum/html/assets/images/favicon.ico' />")
+        mywindow.document.write("<link rel='stylesheet' href='https://templates.iqonic.design/datum/html/assets/css/backend-plugin.min.css' />")
+        mywindow.document.write("<link rel='stylesheet' href='https://templates.iqonic.design/datum/html/assets/css/backend.css?v=1.0.0' />")
+        mywindow.document.write('</head><body>');
+        mywindow.document.write(document.getElementById(area).innerHTML);
+        mywindow.document.write('</body></html>');
+
+        mywindow.document.close(); // necessary for IE >= 10
+        mywindow.focus(); // necessary for IE >= 10*/
+
+        setTimeout(function () {
+        mywindow.print();
+        mywindow.close();
+        }, 1000)
+        return true;
+    }
+</script>
+
+
+
+
+            <%- include('../../../layouts/endpagecontent'); %>
+
+
+<%- include('../../../layouts/footer'); %>

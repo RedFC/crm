@@ -59,9 +59,11 @@ model Customer {
   address     String
   phonenumber String        @unique
   blocked     Boolean       @default(false)
+  balance     String        @default("0")
   createdAt   DateTime      @default(now())
   updatedAt   DateTime      @updatedAt
   Sale        Sale[]
+  ledger      ledger[]
 }
 
 model Items {
@@ -87,15 +89,14 @@ model Sale {
   netprice   String
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
-  ledger     ledger[]
 }
 
 model ledger {
-  id     String @id @default(uuid())
-  sale   Sale   @relation(references: [id], fields: [saleId])
-  saleId String
-  debit   String
-  credit  String
+  id         String   @id @default(uuid())
+  customer   Customer @relation(references: [id], fields: [customerid])
+  customerid String
+  debit      String
+  credit     String
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
 }

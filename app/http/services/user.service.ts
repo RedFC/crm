@@ -80,7 +80,16 @@ export class UserService extends RedisService {
             .catch(error => reject(error))
             .finally(() => this.prisma.$disconnect())
         })
+    }
 
+    updateCustomer(where,data):Promise<any>{
+        return new Promise((resolve,reject) => {
+            this.prisma.customer
+            .update({where,data})
+            .then(user => resolve(user))
+            .catch(error => reject(error))
+            .finally(() => this.prisma.$disconnect())
+        })
     }
 
     updateUser(where,data):Promise<IUser>

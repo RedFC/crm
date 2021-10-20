@@ -26,6 +26,7 @@
                               <th scope="col">ADDRESS</th>
                               <th scope="col">TYPE</th>
                               <th scope="col">PHONE</th>
+                              <th scope="col">BALANCE</th>
                               <th scope="col">RECORD</th>
                               <th scope="col">EDIT</th>
                               <th scope="col">DELETE</th>
@@ -41,6 +42,7 @@
                                  <td><%= data[i].address %></td>
                                  <td><%= data[i].type %></td>
                                  <td><%= data[i].phonenumber %></td>
+                                 <td><%= data[i].balance %></td>
                                  <td><a href="#"><button type="submit" class="btn bg-primary">RECORD</button></a></td>
                                  <td><a href="/admin/customer/update/<%= data[i].id %>"><button type="submit" class="btn bg-warning">EDIT</button></a></td>
                                  <td><a href="#"><button type="submit" class="btn bg-danger">DELETE</button></a></td>

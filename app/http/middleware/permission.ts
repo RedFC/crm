@@ -8,20 +8,15 @@ import { UserService } from "../services/user.service";
 
 export class PermissionMiddleware {
 
-    redirectMiddleware(){
-        return (
-        compose()
-            .use((req,res,next) => {
-                if(!req.session['user']){
-                    req.flash('error', 'Login Please To Go Forward');
-                    res.redirect('/')
-                    return
-                }else{
-                    next();
-                }
-            })
-        )
-    }
+      middleware = (req,res,next) => {
+            if(req.session.user){
+                next();
+            }else{
+                req.flash('error', 'Login Please To Go Forward');
+                res.redirect('/')
+                return
+            }
+        }
 
     // ValidationCreateUser() {
     //     return (
