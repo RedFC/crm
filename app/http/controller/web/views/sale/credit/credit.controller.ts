@@ -51,7 +51,9 @@ export class Views {
 
     async invoice(req, res) {
         try {
-                res.render(path.join(appRoot.path, "views/pages/sale/credit/invoice.ejs"));
+                let myLeadgerService = new LedgerService();
+                let get = await myLeadgerService.find({id:req.params.id});
+                res.render(path.join(appRoot.path, "views/pages/sale/credit/invoice.ejs"),{data:get});
         } catch (error) {
             console.log(error);
         }

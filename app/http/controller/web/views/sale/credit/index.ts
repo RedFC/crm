@@ -11,7 +11,7 @@ CreditsRouter.post('/create',views_controller.set)
 
 CreditsRouter.get('/view',views_controller.view)
 
-CreditsRouter.get('/invoice',views_controller.invoice)
+CreditsRouter.get('/invoice/:id',views_controller.invoice)
 
 CreditsRouter.get('/update/:id',views_controller.edit)
 

@@ -6,6 +6,8 @@ import { viewsRouter } from "../app/http/controller/web/views"
 import { CustomerRouter } from "../app/http/controller/web/views/customer"
 import { ItemsRouter } from "../app/http/controller/web/views/Items"
 import { CreditsRouter } from "../app/http/controller/web/views/sale/credit"
+import { CollectionRouter } from "../app/http/controller/web/views/collection"
+
 var session = require('express-session');
 var flash = require('req-flash');
 
@@ -30,6 +32,10 @@ module.exports = function (app) {
     app.use("/admin/item", ItemsRouter)
 
     app.use("/admin/sale/credit", CreditsRouter)
+
+    // app.use("/admin/sale/walking", CreditsRouter)
+
+    app.use("/admin/collection", CollectionRouter)
 
     app.use("/", viewsRouter)
 

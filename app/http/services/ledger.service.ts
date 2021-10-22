@@ -56,7 +56,7 @@ export class LedgerService extends RedisService{
   find(where): Promise<Sale>{
     return (
       new Promise((resolve,reject) => {
-        this.prisma.sale.findFirst({ where })
+        this.prisma.sale.findFirst({ where,include:{customer:true,item:true} })
           .then((result) => resolve(result))
           .catch((error) => reject(error))
           .finally(() => this.prisma.$disconnect()) 
@@ -97,5 +97,6 @@ export class LedgerService extends RedisService{
         })
       )
   }
+
 
 }

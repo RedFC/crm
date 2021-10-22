@@ -41,8 +41,8 @@
                                  <td><%= data[i].itemprice %></td>
                                  <td><%= data[i].netprice %></td>
                                  <td><%= data[i].quantity %></td>
-                                 <td><a href="#"><button type="submit" class="btn bg-primary">PRINT</button></a></td>
-                                 <td><a href="/admin/customer/update/<%= data[i].id %>"><button type="submit" class="btn bg-warning">EDIT</button></a></td>
+                                 <td><a href="/admin/sale/credit/invoice/<%= data[i].id %>"><button type="submit" class="btn bg-primary">RECORD</button></a></td>
+                                 <td><a href="/admin/sale/credit/update/<%= data[i].id %>"><button type="submit" class="btn bg-warning">EDIT</button></a></td>
                                  <td><a href="#"><button type="submit" class="btn bg-danger">DELETE</button></a></td>
                               </tr>
                            <% } %>
