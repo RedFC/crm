@@ -5,7 +5,6 @@ export class Views {
 
     async create(req, res)
     {
-
         let myUserservice = new UserService();
         let get = await myUserservice.getCustomers();
         res.render(path.join(appRoot.path, "views/pages/collection/create.ejs"),{data:get});

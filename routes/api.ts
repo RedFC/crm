@@ -1,8 +1,7 @@
 import expess from "express";
-import { userRouter } from "../app/http/controller/api/user";
-import { userAdminRouter } from "../app/http/controller/api/user/admin";
-import { teamAdminRouter } from "../app/http/controller/api/team/admin";
+import { extraApisRouter } from "../app/http/controller/api/extraApis";
 const app = expess();
 
+app.use('/extra',extraApisRouter)
 
 module.exports = app;

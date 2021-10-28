@@ -82,6 +82,18 @@ export class UserService extends RedisService {
         })
     }
 
+
+    getCustomerAdvance(where):Promise<any>{
+        return new Promise((resolve,reject) => {
+            this.prisma.customer
+            .findFirst({where,select :{advance:true}})
+            .then(user => resolve(user))
+            .catch(error => reject(error))
+            .finally(() => this.prisma.$disconnect())
+        })
+    }
+
+
     updateCustomer(where,data):Promise<any>{
         return new Promise((resolve,reject) => {
             this.prisma.customer

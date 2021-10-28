@@ -52,18 +52,20 @@ model Profile {
 }
 
 model Customer {
-  id          String        @id @default(uuid())
-  name        String
-  email       String        @unique
-  type        CustomerTypes @default(WALKIN)
-  address     String
-  phonenumber String        @unique
-  blocked     Boolean       @default(false)
-  balance     String        @default("0")
-  createdAt   DateTime      @default(now())
-  updatedAt   DateTime      @updatedAt
-  Sale        Sale[]
-  ledger      ledger[]
+  id               String             @id @default(uuid())
+  name             String
+  email            String
+  type             CustomerTypes      @default(WALKING)
+  address          String
+  phonenumber      String             @unique
+  blocked          Boolean            @default(false)
+  balance          String             @default("0")
+  advance          String             @default("0")
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime           @updatedAt
+  Sale             Sale[]
+  ledger           ledger[]
+  CollectionRecord CollectionRecord[]
 }
 
 model Items {
@@ -79,16 +81,23 @@ model Items {
 }
 
 model Sale {
-  id         String   @id @default(uuid())
-  item       Items    @relation(references: [id], fields: [itemId])
-  itemId     String
-  customer   Customer @relation(references: [id], fields: [customerId])
-  customerId String
-  quantity   String
-  itemprice  String
-  netprice   String
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
+  id               String             @id @default(uuid())
+  item             Items              @relation(references: [id], fields: [itemId])
+  itemId           String
+  customer         Customer           @relation(references: [id], fields: [customerId])
+  customerId       String
+  quantity         String
+  itemprice        String
+  netprice         String
+  salestatus       SaleStatus         @default(UNPAID)
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime           @updatedAt
+  CollectionRecord CollectionRecord[]
+}
+
+enum SaleStatus {
+  PAID
+  UNPAID
 }
 
 model ledger {
@@ -103,5 +112,17 @@ model ledger {
 
 enum CustomerTypes {
   CREDIT
-  WALKIN
+  WALKING
+}
+
+model CollectionRecord {
+  id         String   @id @default(uuid())
+  customer   Customer @relation(references: [id], fields: [customerid])
+  customerid String
+  sale       Sale     @relation(references: [id], fields: [saleid])
+  saleid     String
+  amount     String
+  paidamount String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
 }

@@ -14,15 +14,34 @@
                 </div>
                       <!-- Entry Points -->
                       <form method="post" action="/admin/customer/create">
-                        <div class="form-group">
+                            <div class="form-group">
+                                <div class="input-group mb-4">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" for="inputGroupSelect01">Customer:</label>
+                                    </div>
+                                    <select name="customer" id="customer" class="custom-select">
+                                        <option value="Choose Customer">Choose Customer</option>
+                                        <% for(var i=0; i < data.length; i++) { %>
+                                            <option value="<%= data[i].id %>"><%= data[i].name %></option>
+                                        <% } %>
+                                    </select>
+                                </div>
+                          </div>
+                          <div class="form-group">
                             <div class="input-group mb-4">
                                 <div class="input-group-prepend">
-                                    <label class="input-group-text" for="inputGroupSelect01">Customer:</label>
+                                    <label class="input-group-text" for="inputGroupSelect01">Customer Advance: &nbsp;<span id="advance">0</span></label>
                                 </div>
-                                <select name="customer" id="" class="custom-select">
-                                    <% for(var i=0; i < data.length; i++) { %>
-                                        <option value="<%= data[i].id %>"><%= data[i].name %></option>
-                                    <% } %>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="input-group mb-4">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" for="inputGroupSelect01">Payment Type:</label>
+                                </div>
+                                <select name="paymenttype" id="" class="custom-select">
+                                        <option value="cash">CASH</option>
+                                        <option value="advance">ADVANCE</option>
                                 </select>
                             </div>
                           </div>
@@ -37,5 +56,19 @@
                    <!-- End points -->
             </div>
     </div>
+
+    <script>
+        $(document).ready(function(){
+            $("#customer").on('change',() => {
+                $.ajax({
+                    url: "http://127.0.0.1:4000/api/extra/getAdvance/"+$("#customer").val(),
+                    method:"GET"
+                  }).done(function(data) {
+                      $("#advance").text(data.advance)
+                  });
+            })
+         })
+    </script>
+
          <%- include('../../layouts/endpagecontent'); %>
 <%- include('../../layouts/footer'); %>
